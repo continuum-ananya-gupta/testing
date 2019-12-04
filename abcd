@@ -1,46 +1,18 @@
-{
-  "itsm": {
-    "alert": {
-      "source": "object",
-      "template": {
-        "alertId":"$.alertId",
-        "conditionId": "$.conditionmeta_config.conditionId",
-        "partnerId": "$.metadata.partnerId",
-        "siteId": "$.metadata.siteId",
-		"clientId": "$.metadata.clientId",
-        "endpointId": "$.metadata.endpointId",
-        "resourceId": "$.metadata.resourceId",
-        "filterValue": "$.metadata.filterValue",
-	"filterField": "$.metadata.filterField",
-        "alertdetails": "$.alertrequest.payload.alertDetails",
-        "remediateurl": "$.remediateurl",
-        "fetchdataurl": "$.fetchdataurl",
-        "sourceSystem":"$.conditionmeta_config.sourceSystem",
-        "priority":"$.conditionmeta_config.priority",
-        "description":"$.conditionmeta_config.description",
-		"rootcause": {
-          "key": "$.RootCause",
-		  "sourceType": "map",
-		  "desttype" :  "array",
-          "elementtmplt": "$.ref.childalert.template"
-        }
-      }
-    },
-    "ref": {
-      "childalert": {
-        "template": {
-          "conditionId": "$.conditionmeta_config.conditionId",
-          "conditionName": "$.conditionmeta_config.conditionname",
-          "partnerId": "$.metadata.partnerId",
-          "siteId": "$.metadata.siteId",
-          "endpointId": "$.metadata.endpointId",
-          "resourceId": "$.metadata.resourceId",
-          "filterValue": "$.metadata.filterValue",
-          "filterField": "$.metadata.filterField",
-          "alertdetails": "$.alertrequest.payload.alertDetails",
-          "action": "$.alertrequest.action"
-        }
-      }
+[Yesterday 19:05] Pranoti Honwadkar
+    
+http://localhost:8081/alerting/v2/partners/23/clients/1234/sites/232/alerts
+​[Yesterday 19:05] Pranoti Honwadkar
+    {
+    "conditionId":50001,
+    "filterField": "abc",
+    "priority":"high",
+    "alertDetails"  :{
+        "abc":"a",
+        "ServiceName":"Backup Exec Server",
+        "DisplayName":"BackupExecRPCService",
+        "StartupType":"Disabled",
+        "ServiceStatus":"Stopped",
+        "ExitCode":0,
+        "ObservedDate":"24 October 2017 3:00 PM"
     }
-  }
 }
