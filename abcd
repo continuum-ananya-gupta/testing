@@ -1,18 +1,80 @@
-[Yesterday 19:05] Pranoti Honwadkar
-    
-http://localhost:8081/alerting/v2/partners/23/clients/1234/sites/232/alerts
-​[Yesterday 19:05] Pranoti Honwadkar
-    {
-    "conditionId":50001,
-    "filterField": "abc",
-    "priority":"high",
-    "alertDetails"  :{
-        "abc":"a",
-        "ServiceName":"Backup Exec Server",
-        "DisplayName":"BackupExecRPCService",
-        "StartupType":"Disabled",
-        "ServiceStatus":"Stopped",
-        "ExitCode":0,
-        "ObservedDate":"24 October 2017 3:00 PM"
-    }
-}
+{ "BuildVersion":"",
+ "ListenURL":":8081",
+ "URLPrefix":"/alerting",
+ "APIVersion":"/v1",
+ "LogFilePath":"./PASLog.log",
+ "_LogFileSamples":"Minute: ./log/2006/01/02/15/incidentservice2006.01.02.15.04.log Day: ./log/2006/01/02/PASLog.log",
+ "Version":{ 
+ "SolutionName":"AlertingService",
+ "ServiceName":"Alerting_Service",
+ "ServiceProvider":"Continuum LLC",
+ "Major":"1",
+ "Minor":"0",
+ "Patch":"0",
+ "Build":"102"
+ },
+ "_comment":"",
+ "ActiveDBType":0,
+ "CleanSqliteDB":false,
+ "loglevel":"info",
+ "MaxFileSizeInMB":100,
+ "OldFileToKeep" : 5,
+ "EnvType":"Integration",
+ "DbProvider":"Cassandra",
+ "CassandraHosts" : ["localhost:9042"],
+ "KafkaBrokers": ["localhost:9092"],
+ "KafkaTopic": "alerting",
+ "CassandraKeyspace" : "platform_alerting_service_db",
+ "CassandraTimeoutMiliSec": 2000,
+ "SimpleRetrialCount" : 3,
+ "ExponentialRetrialCount" : 3,
+ "AlertStateCacheUpdatePath": "/alertstate",
+ "ZookeeperAlertSnoozePath":"/alerting-service-snooze",
+ "CacheEvictionTimeinMins": 10,
+ "SyncConfig": {
+ "Servers": ["localhost:2181"],
+ "SessionTimeoutInSecond": 10
+ },
+ "DownstreamServiceName" : "JAS",
+ "ChannelCapacity" : 100,
+ "ConditionCfgPath" : "./conditionconfigloader/under_research_conditions.csv",
+ "IsAutomationOn" : true,
+ "IsConsolidationOn" : true,
+ "SuccessHandlerRetrialCount":3,
+ "ZookeeperBasePath": "/alerting-service" ,
+ "EnableTrace": false,
+ "TracePath":"/opt/continuum/trace",
+ "RetrialCountThreshold":50,
+ "Audit_Type":"LOG",
+ "Audit_File_Name":"./AuditLog.log",
+ "Audit_File_Max_Size":100,
+ "snoozetoggle": false,
+ "reinitializetoggle": false,
+ "ITSMServiceOn" : false,
+ "ITSMSimulatorOn" : true,
+ "ManualClosureTopicConsumer" : ["cherwell-alerting","failuretopic"],
+ "KafkaGroupID" : "abc",
+ "CommandFailureTopic" : "failuretopic",
+ "AutomationServiceTopic" : "alerting",
+    "ReinitBasePath": "/alerting-service-reinit",
+    "ReinitNodeSleepTimeSecs":180,
+    "AlertReinitValidDurationMins": 15,
+    "UseResourceId" : true,
+ "ShouldEmitParentAlertEvent":false,
+ "publishTokafka":true,
+ "ConsolidationShutdownTopic":"rmm_alerting_datatransfer_json",
+ "GracefulShutdown" : true,
+ "ConditionSchemaPath":"./Build/conditionSchema.json",
+    "ConsolidationShutdownTopicConsumer":["rmm_alerting_datatransfer_json"],
+ "ConditionKafkaTopic" : "alerting_condition_json",
+    "PendingAuditTTLInDays" : 30,
+    "FailureTableTTLInDays" : 30,
+    "ItsmSimulationTTLInDays" :30,
+    "pprofenabled": false,
+    "CheckpointSaveRetryCount": 5,
+ "CheckpointSaveRetryWaitInSecs": 30,
+ "publishDyanatraceEventOn" : true
+ 
+ 
+ 
+ }
