@@ -1,0 +1,46 @@
+{
+  "itsm": {
+    "alert": {
+      "source": "object",
+      "template": {
+        "alertId":"$.alertId",
+        "conditionId": "$.conditionmeta_config.conditionId",
+        "partnerId": "$.metadata.partnerId",
+        "siteId": "$.metadata.siteId",
+		"clientId": "$.metadata.clientId",
+        "endpointId": "$.metadata.endpointId",
+        "resourceId": "$.metadata.resourceId",
+        "filterValue": "$.metadata.filterValue",
+	"filterField": "$.metadata.filterField",
+        "alertdetails": "$.alertrequest.payload.alertDetails",
+        "remediateurl": "$.remediateurl",
+        "fetchdataurl": "$.fetchdataurl",
+        "sourceSystem":"$.conditionmeta_config.sourceSystem",
+        "priority":"$.conditionmeta_config.priority",
+        "description":"$.conditionmeta_config.description",
+		"rootcause": {
+          "key": "$.RootCause",
+		  "sourceType": "map",
+		  "desttype" :  "array",
+          "elementtmplt": "$.ref.childalert.template"
+        }
+      }
+    },
+    "ref": {
+      "childalert": {
+        "template": {
+          "conditionId": "$.conditionmeta_config.conditionId",
+          "conditionName": "$.conditionmeta_config.conditionname",
+          "partnerId": "$.metadata.partnerId",
+          "siteId": "$.metadata.siteId",
+          "endpointId": "$.metadata.endpointId",
+          "resourceId": "$.metadata.resourceId",
+          "filterValue": "$.metadata.filterValue",
+          "filterField": "$.metadata.filterField",
+          "alertdetails": "$.alertrequest.payload.alertDetails",
+          "action": "$.alertrequest.action"
+        }
+      }
+    }
+  }
+}
