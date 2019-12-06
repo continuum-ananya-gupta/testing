@@ -1,23 +1,22 @@
-copy pas_condition_metadata TO 'abcd.csv' WITH HEADER=TRUE ;
-DROP TABLE pas_condition_metadata;
-CREATE TABLE IF NOT EXISTS platform_alerting_service_db.pas_condition_metadata (
-    conditionid text Primary key,
-	conditionname text,
-	conditionfamily text,
-	closingcondition boolean,
-	underresearch boolean,
-	downstream text,
-	fetchdata boolean,
-	remediation boolean,
-	consolidation boolean,
-	consolidationsleeptime text,
-	issnooze boolean,
-	snooze text,
-	conditionpayload text,
-	sourceSystem text,
-	updatedtime timestamp,
-    priority int,
-    description text,
-    configurable boolean
-);
-copy pas_condition_metadata FROM 'abcd.csv' WITH HEADER=TRUE ;
+{
+    "conditionId": "800001",
+    "conditionFamily": "F1000",
+    "conditionName": "Vss Writer (SAMPLE)",
+    "underResearch": true,
+    "remediation": true,
+    "fetchData" : true,
+    "closingCondition": true,
+    "consolidation" :true,
+    "downstream":"ITSM",
+	"issnooze" : true,
+	"sourceSystem" : "2.0",
+    "conditionPayload": "{\"conditionid\":\"5009\"}",
+    "snooze":{
+        "duration": 2,
+        "unit": "MINS"
+    },
+    "consolidationSleepTime":{
+        "duration": 2,
+        "unit": "MINS"
+    }
+}
