@@ -1,22 +1,18 @@
-{
-    "conditionId": "800001",
-    "conditionFamily": "F1000",
-    "conditionName": "Vss Writer (SAMPLE)",
-    "underResearch": true,
-    "remediation": true,
-    "fetchData" : true,
-    "closingCondition": true,
-    "consolidation" :true,
-    "downstream":"ITSM",
-	"issnooze" : true,
-	"sourceSystem" : "2.0",
-    "conditionPayload": "{\"conditionid\":\"5009\"}",
-    "snooze":{
-        "duration": 2,
-        "unit": "MINS"
-    },
-    "consolidationSleepTime":{
-        "duration": 2,
-        "unit": "MINS"
+[Tuesday 19:05] Pranoti Honwadkar
+    
+http://localhost:8081/alerting/v2/partners/23/clients/1234/sites/232/alerts
+​[Tuesday 19:05] Pranoti Honwadkar
+    {
+    "conditionId":50001,
+    "filterField": "abc",
+    "priority":"high",
+    "alertDetails"  :{
+        "abc":"a",
+        "ServiceName":"Backup Exec Server",
+        "DisplayName":"BackupExecRPCService",
+        "StartupType":"Disabled",
+        "ServiceStatus":"Stopped",
+        "ExitCode":0,
+        "ObservedDate":"24 October 2017 3:00 PM"
     }
 }
