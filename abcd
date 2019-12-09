@@ -1,18 +1,23 @@
-[Tuesday 19:05] Pranoti Honwadkar
-    
-http://localhost:8081/alerting/v2/partners/23/clients/1234/sites/232/alerts
-​[Tuesday 19:05] Pranoti Honwadkar
-    {
-    "conditionId":50001,
-    "filterField": "abc",
-    "priority":"high",
-    "alertDetails"  :{
-        "abc":"a",
-        "ServiceName":"Backup Exec Server",
-        "DisplayName":"BackupExecRPCService",
-        "StartupType":"Disabled",
-        "ServiceStatus":"Stopped",
-        "ExitCode":0,
-        "ObservedDate":"24 October 2017 3:00 PM"
-    }
-}
+copy platform_alerting_service_db.pas_condition_metadata TO 'ConditionMetaData_DUMP.csv' WITH HEADER=TRUE ;
+DROP TABLE platform_alerting_service_db.pas_condition_metadata;
+CREATE TABLE IF NOT EXISTS platform_alerting_service_db.pas_condition_metadata (
+    conditionid text Primary key,
+	conditionname text,
+	conditionfamily text,
+	closingcondition boolean,
+	underresearch boolean,
+	downstream text,
+	fetchdata boolean,
+	remediation boolean,
+	consolidation boolean,
+	consolidationsleeptime text,
+	issnooze boolean,
+	snooze text,
+	conditionpayload text,
+	sourceSystem text,
+	updatedtime timestamp,
+    priority int,
+    description text,
+    configurable boolean
+);
+copy platform_alerting_service_db.pas_condition_metadata FROM 'ConditionMetaData_DUMP.csv' WITH HEADER=TRUE ;
