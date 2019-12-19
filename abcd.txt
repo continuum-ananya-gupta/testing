@@ -14,3 +14,7 @@ sudo apt-get update
 
 
 
+wget http://localhost:6060/debug/pprof/goroutine?debug=1
+wget http://localhost:6060/debug/pprof/heap?debug=1
+wget http://localhost:6060/debug/pprof/profile?debug=1
+wget http://localhost:6060/debug/pprof/trace?debug=1
